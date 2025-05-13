@@ -1,0 +1,30 @@
+<div class="container">
+  <h2 class="titulo">Masajes Terapéuticos</h2>
+  <div class="grid-container">
+    <div class="card" *ngFor="let masaje of masajes">
+      <img [src]="masaje.imagen" [alt]="masaje.nombre">
+      <h3>{{ masaje.nombre }}</h3>
+      <p>{{ masaje.descripcion }}</p>
+      <p><strong>Precio:</strong> ${{ masaje.precio }} MXN</p>
+      <button (click)="abrirFormulario(masaje)" class="btn-reservar">Reservar</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <div *ngIf="masajeSeleccionado" class="form-container">
+    <h3>Formulario de Reservación</h3>
+    <p><strong>Servicio Seleccionado:</strong> {{ masajeSeleccionado.nombre }}</p>
+    <form [formGroup]="formulario" (ngSubmit)="reservar()">
+      <input type="text" formControlName="nombre" placeholder="Nombre Completo">
+      <input type="text" formControlName="telefono" placeholder="Teléfono (10 dígitos)">
+      <input type="email" formControlName="correo" placeholder="Correo Electrónico">
+      <input type="date" formControlName="fecha" [min]="fechaMinima">
+      <input type="number" formControlName="personas" min="1" placeholder="Número de Personas">
+      <p><strong>Total a Pagar:</strong> ${{ total }} MXN</p>
+      <button type="submit" class="btn-confirmar" [disabled]="!formulario.valid">Confirmar Reserva</button>
+    </form>
+  </div>
+</div>
+
+<app-faq></app-faq>

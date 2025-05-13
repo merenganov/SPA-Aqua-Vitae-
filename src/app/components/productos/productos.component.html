@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="title">Lista de Productos</h1>
+
+  <div class="search-bar">
+    <input 
+      type="text" 
+      placeholder="Buscar producto..." 
+      [formControl]="searchControl"
+      class="input-search"
+    />
+  </div>
+
+  <div *ngIf="notFoundMessage" class="not-found">
+    {{ notFoundMessage }}
+  </div>
+
+  <div class="product-grid">
+    <div class="card" *ngFor="let product of filteredProducts">
+      <img [src]="product.image" alt="Imagen Producto" class="product-image">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-description">{{ product.description }}</p>
+        <p class="card-price">${{ product.price }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-faq></app-faq>

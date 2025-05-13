@@ -1,0 +1,21 @@
+<div class="galeria-container">
+  <!-- Imagen Principal Mostrada -->
+  <div class="imagen-principal">
+    <img [src]="imagenSeleccionada" (click)="abrirModal()" alt="Imagen Seleccionada">
+  </div>
+
+  <!-- Thumbnails de la galería -->
+  <div class="thumbnails">
+    <img *ngFor="let imagen of imagenes" 
+         [src]="imagen.url" 
+         (click)="seleccionarImagen(imagen.url)" 
+         [class.selected]="imagen.url === imagenSeleccionada"
+         alt="Galería">
+  </div>
+
+  <!-- Modal de Imagen -->
+  <div class="modal" *ngIf="mostrarModal">
+    <span class="close" (click)="cerrarModal()">&times;</span>
+    <img class="modal-content" [src]="imagenSeleccionada">
+  </div>
+</div>

@@ -1,0 +1,50 @@
+""<div class="promociones-container">
+  <h2>Promociones Especiales</h2>
+  <p>Aprovecha nuestras increíbles promociones:</p>
+
+  <div class="grid-container">
+    <div *ngFor="let promo of promociones" class="card">
+      <h3>{{ promo.titulo }}</h3>
+      <p>{{ promo.descripcion }}</p>
+      <p><strong>Precio:</strong> ${{ promo.precio }} MXN</p>
+      <button (click)="solicitarPromocion(promo)" class="btn btn-primary">Solicitar Promoción</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Formulario Reactivo -->
+  <div *ngIf="promocionSeleccionada">
+    <h3>Formulario de Solicitud</h3>
+    <h4>Solicitar: {{ promocionSeleccionada.titulo }}</h4>
+    <form [formGroup]="formulario" (ngSubmit)="enviarSolicitud()">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input formControlName="nombre" placeholder="Nombre Completo" />
+      </div>
+
+      <div class="form-group">
+        <label>Teléfono:</label>
+        <input formControlName="telefono" placeholder="Teléfono (10 dígitos)" />
+      </div>
+
+      <div class="form-group">
+        <label>Correo Electrónico:</label>
+        <input formControlName="correo" placeholder="Correo Electrónico" />
+      </div>
+
+      <div class="form-group">
+        <label>Número de Personas:</label>
+        <input type="number" formControlName="personas" min="1" />
+      </div>
+
+      <h4>Total a pagar: ${{ total * formulario.value.personas }} MXN</h4>
+
+      <button [disabled]="formulario.invalid" type="submit" class="btn btn-success">
+        Reservar
+      </button>
+    </form>
+  </div>
+</div>
+""
+  <app-faq></app-faq>

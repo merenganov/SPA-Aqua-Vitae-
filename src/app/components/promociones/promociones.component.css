@@ -1,0 +1,77 @@
+/* Contenedor principal */
+.promociones-container {
+  text-align: center;
+  margin: 20px;
+}
+
+/* Grid para organizar las cards */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* Estilo de cada card */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  background-color: white;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Estilo del botón */
+.btn {
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Estilo del formulario */
+form {
+  margin-top: 20px;
+  text-align: left;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: white;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[disabled] {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+

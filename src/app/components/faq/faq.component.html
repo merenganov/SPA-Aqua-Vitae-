@@ -1,0 +1,11 @@
+<div class="faq-container">
+  <div *ngFor="let item of preguntas; index as i" class="faq-item">
+    <div class="faq-question" (click)="toggle(i)">
+      {{ item.pregunta }}
+      <span>{{ seleccionada === i ? '-' : '+' }}</span>
+    </div>
+    <div *ngIf="seleccionada === i" class="faq-answer">
+      {{ item.respuesta }}
+    </div>
+  </div>
+</div>

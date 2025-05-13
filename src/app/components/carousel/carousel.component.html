@@ -1,0 +1,35 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/aqua1.jpg" class="d-block w-100" alt="Primera Imagen">
+      </div>
+      <div class="carousel-item">
+        <img src="images/aqua2.webp" class="d-block w-100" alt="Segunda Imagen">
+      </div>
+      <div class="carousel-item">
+        <img src="images/aqua3.jpg" class="d-block w-100" alt="Tercera Imagen">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+
+
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <h2 class="me-3">Bienvenida a Aqua Vitae Spa</h2>
+    <button class="btn btn-success" (click)="reservar()">Reserva Ahora</button>
+  </div>
+
+  <p class="promo-text text-center mt-3">Relájate, renueva tu espíritu y encuentra el equilibrio en cada visita.</p>
+  <app-cards></app-cards>
+  <app-galeria></app-galeria>
+  <app-faq></app-faq>

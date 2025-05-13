@@ -1,0 +1,29 @@
+<h2>Tratamientos Corporales</h2>
+
+<div class="grid-container">
+  <div class="card" *ngFor="let tratamiento of tratamientos">
+    <img [src]="tratamiento.imagen" [alt]="tratamiento.nombre">
+    <h3>{{ tratamiento.nombre }}</h3>
+    <p>{{ tratamiento.descripcion }}</p>
+    <p><strong>Precio:</strong> ${{ tratamiento.precio }} MXN</p>
+    <button (click)="formulario.get('tratamiento')?.setValue(tratamiento.nombre); actualizarTotal();" class="btn-reservar">
+      Seleccionar
+    </button>
+  </div>
+</div>
+
+<hr>
+
+<form [formGroup]="formulario" (ngSubmit)="reservar()" class="formulario">
+  <h3>Formulario de Reservación</h3>
+  <h4>Tratamiento Seleccionado: {{ formulario.get('tratamiento')?.value }}</h4>
+  <input type="text" placeholder="Nombre Completo" formControlName="nombre">
+  <input type="text" placeholder="Teléfono (10 dígitos)" formControlName="telefono">
+  <input type="email" placeholder="Correo Electrónico" formControlName="correo">
+  <input type="date" placeholder="Fecha de Reserva" formControlName="fecha" [min]="minDate">
+  <input type="number" min="1" placeholder="Personas" formControlName="personas" (change)="actualizarTotal()">
+
+  <p><strong>Total a Pagar:</strong> ${{ total }} MXN</p>
+  <button type="submit" [disabled]="formulario.invalid" class="btn-confirmar">Confirmar Reserva</button>
+</form>
+  <app-faq></app-faq>

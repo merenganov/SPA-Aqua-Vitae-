@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Referencias</h2>
+
+  <div class="formulario">
+    <input type="text" placeholder="Nombre" [(ngModel)]="nombre" />
+    <input type="url" placeholder="Enlace (URL)" [(ngModel)]="enlace" />
+    <textarea placeholder="Descripción" [(ngModel)]="descripcion"></textarea>
+    <input type="date" [(ngModel)]="fecha" />
+    <button (click)="agregarReferencia()" class="btn-guardar">Guardar Referencia</button>
+  </div>
+
+  <div class="grid-container">
+    <div class="card" *ngFor="let ref of referencias; let i = index">
+      <h3>{{ ref.nombre | uppercase }}</h3>
+      <p>{{ ref.descripcion | safeHtml }}</p>
+      <p><strong>Fecha:</strong> {{ ref.fecha | date: 'longDate' }}</p>
+      <a [href]="ref.enlace" target="_blank" class="btn-ver">Ver Referencia</a>
+      <button (click)="eliminarReferencia(i)" class="btn-eliminar">Eliminar</button>
+    </div>
+  </div>
+</div>

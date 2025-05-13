@@ -1,0 +1,40 @@
+.carousel-inner img {
+    height: 400px;
+    object-fit: cover;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: #007acc;
+    border-radius: 50%;
+  }
+  .welcome-message {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-message h2 {
+    color: #009688;
+    font-weight: bold;
+  }
+  
+  .promo-text {
+    color: #4CAF50;
+    font-size: 1.2em;
+  }
+  
+  .btn-success {
+    background-color: #009688;
+    border-color: #00796b;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .btn-success:hover {
+    background-color: #00796b;
+    border-color: #005b4a;
+  }
+  

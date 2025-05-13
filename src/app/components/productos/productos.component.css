@@ -1,0 +1,45 @@
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.search-bar {
+  margin-bottom: 15px;
+}
+
+.input-search {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.not-found {
+  color: red;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+.product-result {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.product-name {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.product-price {
+  color: green;
+  font-weight: bold;
+}

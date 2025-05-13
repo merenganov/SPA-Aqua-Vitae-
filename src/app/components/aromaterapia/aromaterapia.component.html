@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Aromaterapia</h2>
+  <div class="grid-container">
+    <div class="card" *ngFor="let tratamiento of tratamientos">
+      <img [src]="tratamiento.imagen" [alt]="tratamiento.nombre">
+      <h3>{{ tratamiento.nombre }}</h3>
+      <p>{{ tratamiento.descripcion }}</p>
+      <p><strong>Precio:</strong> {{ tratamiento.precio }} MXN</p>
+      <button (click)="abrirFormulario(tratamiento)" class="btn-reservar">Reservar</button>
+    </div>
+  </div>
+
+  <hr />
+
+  <div *ngIf="tratamientoSeleccionado" class="form-container">
+    <h3>Formulario de Reservación</h3>
+    <p><strong>Servicio Seleccionado:</strong> {{ tratamientoSeleccionado.nombre }}</p>
+    <form [formGroup]="formulario" (ngSubmit)="reservar()">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" formControlName="nombre" placeholder="Nombre Completo">
+      </div>
+
+      <div class="form-group">
+        <label>Teléfono:</label>
+        <input type="text" formControlName="telefono" placeholder="Teléfono (10 dígitos)">
+      </div>
+
+      <div class="form-group">
+        <label>Correo Electrónico:</label>
+        <input type="email" formControlName="correo" placeholder="Correo Electrónico">
+      </div>
+
+      <div class="form-group">
+        <label>Fecha de Reserva:</label>
+        <input type="date" formControlName="fecha" [min]="fechaMinima">
+      </div>
+
+      <div class="form-group">
+        <label>Número de Personas:</label>
+        <input type="number" formControlName="personas" min="1" (change)="actualizarTotal()">
+      </div>
+
+      <p class="total-pagar">Total a Pagar: ${{ total }} MXN</p>
+      <button type="submit" class="btn-confirmar">Confirmar Reserva</button>
+    </form>
+  </div>
+</div>
+
+<app-faq></app-faq>

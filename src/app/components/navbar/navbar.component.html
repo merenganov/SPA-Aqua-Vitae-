@@ -1,0 +1,44 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <img src="images/favit.png" alt="Aqua Vitae Spa">
+    <span>Aqua Vitae Spa</span>
+  </div>
+  <ul class="navbar-links">
+    <li><a routerLink="/carousel" routerLinkActive="active">Inicio</a></li>
+
+    <!-- Dropdown de Servicios -->
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Servicios</a>
+      <div class="dropdown-content">
+        <li><a routerLink="/masajesterapeuticos" routerLinkActive="active">Masajes terapeuticos</a></li>        
+        <li><a routerLink="/sauna" routerLinkActive="active">Baños de vapor y sauna</a></li>
+        <li><a routerLink="/tratamientosfaciales" routerLinkActive="active">Tratamientos faciales</a></li>        
+        <li><a routerLink="/tratamientoscorporales" routerLinkActive="active">Tratamientos corporales</a></li>
+        <li><a routerLink="/aromaterapia" routerLinkActive="active">Aromaterapia</a></li>
+      </div>
+    </li>
+
+    <li><a routerLink="/promociones" routerLinkActive="active">Promociones</a></li>
+    <li><a routerLink="/productos" routerLinkActive="active">Productos</a></li>
+    <li><a routerLink="/contacto" routerLinkActive="active">Contacto</a></li>
+    <li><a routerLink="/referencias" routerLinkActive="active">Referencias</a></li>
+
+    <!-- Si está logueado -->
+    <li *ngIf="usuario" class="usuario-nombre">{{ usuario }}</li>
+
+    <!-- Si es Oswaldo, muestra la opción de Informe -->
+    <li *ngIf="usuario === 'Oswaldo De La Cruz García'">
+      <a routerLink="/informe">Informe</a>
+    </li>
+
+    <!-- Opción para cerrar sesión -->
+    <li *ngIf="usuario">
+      <a (click)="cerrarSesion()">Cerrar Sesión</a>
+    </li>
+
+    <!-- Si no hay sesión iniciada -->
+    <li *ngIf="!usuario">
+      <a routerLink="/login">Iniciar Sesión</a>
+    </li>
+  </ul>
+</nav>

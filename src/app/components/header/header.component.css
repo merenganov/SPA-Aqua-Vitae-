@@ -1,0 +1,22 @@
+.header-container {
+  background-color: #0a8a6e; 
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  border-bottom: 3px solid #0a8a6e
+}
+
+.header-container h1 {
+  margin: 0;
+  color: goldenrod;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.header-container p {
+  margin: 5px 0 0 0;
+  color: grey;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #dfefff;
+}

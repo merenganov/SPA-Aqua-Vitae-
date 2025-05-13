@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Informe de Reservaciones</h2>
+
+  <div *ngFor="let categoria of categorias">
+    <h3>{{ categoria.nombre }}</h3>
+
+    <div *ngIf="reservas[categoria.clave]?.length > 0; else noDatos">
+      <div class="grid-container">
+        <div class="card" *ngFor="let reserva of reservas[categoria.clave]; let i = index">
+          <div *ngIf="!editando || editando.index !== i || editando.clave !== categoria.clave">
+            <p><strong>Nombre:</strong> {{ reserva.nombre }}</p>
+            <p><strong>Teléfono:</strong> {{ reserva.telefono }}</p>
+            <p><strong>Correo:</strong> {{ reserva.correo }}</p>
+            <p><strong>Personas:</strong> {{ reserva.personas }}</p>
+            <p><strong>Fecha:</strong> {{ reserva.fecha }}</p>
+            <p><strong>Total:</strong> ${{ reserva.total }} MXN</p>
+            <button (click)="eliminarReserva(categoria.clave, i)" class="btn-eliminar">Eliminar</button>
+            <button (click)="editarReserva(categoria.clave, i)" class="btn-editar">Editar</button>
+          </div>
+
+          <div *ngIf="editando && editando.index === i && editando.clave === categoria.clave">
+            <input [(ngModel)]="editando.nombre" placeholder="Nombre">
+            <input [(ngModel)]="editando.telefono" placeholder="Teléfono">
+            <input [(ngModel)]="editando.correo" placeholder="Correo">
+            <input [(ngModel)]="editando.personas" placeholder="Personas" type="number">
+            <input [(ngModel)]="editando.fecha" placeholder="Fecha" type="date">
+            <input [(ngModel)]="editando.total" placeholder="Total" type="number">
+
+            <button (click)="guardarEdicion()" class="btn-guardar">Guardar</button>
+            <button (click)="cancelarEdicion()" class="btn-cancelar">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noDatos>
+      <p class="no-datos">No hay informes disponibles para {{ categoria.nombre }}.</p>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="container">
+  <h2>Baños de Vapor y Sauna</h2>
+
+  <!-- Muestra de Servicios -->
+  <div class="grid-container">
+    <div *ngFor="let servicio of servicios" class="card">
+      <img [src]="servicio.imagen" alt="{{ servicio.nombre }}" class="servicio-imagen">
+      <h3>{{ servicio.nombre }}</h3>
+      <p>{{ servicio.descripcion }}</p>
+      <p><strong>Precio:</strong> ${{ servicio.precio }} MXN</p>
+      <button class="btn btn-primary" (click)="servicioSeleccionado = servicio; calcularTotal()">Seleccionar</button>
+    </div>
+  </div>
+
+  <hr>
+  <!-- Información de la Reserva -->
+
+  <div *ngIf="servicioSeleccionado">
+    <h2>Información de la Reserva</h2>
+    <h3>Servicio Seleccionado: {{ servicioSeleccionado.nombre }}</h3>
+    <p><strong>Precio:</strong> ${{ servicioSeleccionado.precio }} MXN</p>
+
+  <!-- Información del cliente -->
+  <div class="form-group">
+    <label>Nombre:</label>
+    <input type="text" class="form-control" [(ngModel)]="nombre" placeholder="Nombre Completo" required />
+  </div>
+
+  <div class="form-group">
+    <label>Teléfono:</label>
+    <input type="text" class="form-control" [(ngModel)]="telefono" placeholder="Teléfono" required />
+  </div>
+
+  <div class="form-group">
+    <label>Correo Electrónico:</label>
+    <input type="email" class="form-control" [(ngModel)]="correo" placeholder="Correo Electrónico" required />
+  </div>
+
+  <div class="form-group">
+    <label>Fecha:</label>
+<input 
+  type="date" 
+  [(ngModel)]="fecha" 
+  [min]="minDate" 
+  class="form-control" 
+  required
+/>
+
+  </div>
+
+  <!-- Opciones Adicionales -->
+  <div class="form-group">
+    <label>Opciones Adicionales:</label>
+    <div *ngFor="let opcion of opcionesAdicionales">
+      <input type="checkbox" [(ngModel)]="opcion.seleccionado" (change)="calcularTotal()" />
+      {{ opcion.nombre }} (+${{ opcion.precio }} MXN)
+    </div>
+  </div>
+
+  <!-- Precio total -->
+  <h3>Total a Pagar: ${{ total }} MXN</h3>
+
+  <!-- Botón Reservar -->
+  <button class="btn btn-success" (click)="reservar()">Reservar</button>
+</div>
+  <app-faq></app-faq>
